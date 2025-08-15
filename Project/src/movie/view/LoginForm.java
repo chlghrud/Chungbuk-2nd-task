@@ -1,13 +1,10 @@
 package movie.view;
 
-import javax.swing.JFrame;
 
 import movie.dto.UserDTO;
 import movie.model.LoginControl;
 import movie.util.AppContext;
 import movie.util.BaseForm;
-import movie.util.DBManager;
-import movie.util.NavigationManager;
 import movie.util.UIUtil;
 
 import java.awt.BorderLayout;
@@ -35,7 +32,7 @@ public class LoginForm extends BaseForm {
 	public LoginForm() {
 		super("로그인");
 		setBounds(100, 100, 468, 242);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(2);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 
 		panel = new JPanel();
@@ -77,8 +74,11 @@ public class LoginForm extends BaseForm {
 			public void actionPerformed(ActionEvent e) {
 				String id = textField.getText(), pw = textField_1.getText();
 				
-				if(UIUtil.errMes(id.isEmpty() || pw.isEmpty(), "입력하지 않은 항목이 있습니다."))
+				if(UIUtil.errMes(id.isEmpty() || pw.isEmpty(), "입력하지 않은 항목이 있습니다.")) {
+					textField.setText("");
+					textField_1.setText("-");
 					return;
+				}
 				if(UIUtil.mes(id.equals("admin") && pw.equals("1234"), "관리자님 환영합니다.")) {
 //					NavigationManager.open(); 관리자폼 열기
 					return;
@@ -88,7 +88,7 @@ public class LoginForm extends BaseForm {
 					return;
 				if(UIUtil.mes(user != null, user.u_name + "님 환영합니다.")) {
 					AppContext.loginUser = user;
-					NavigationManager.back();
+					dispose();
 				}
 			}
 		});

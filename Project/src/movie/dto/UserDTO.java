@@ -12,6 +12,14 @@ public class UserDTO {
 	public Date u_birth;
 	public int u_price;
 	
+	public String recom;
+	 
+	public UserDTO(int u_no, String u_name, String recom) {
+		this.u_no = u_no;
+		this.u_name = u_name;
+		this.recom = recom;
+	}
+
 	public UserDTO(ResultSet rs) throws SQLException {
 		u_no = rs.getInt("u_no");
 		u_name = rs.getString("u_name");

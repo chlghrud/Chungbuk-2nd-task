@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import javax.management.RuntimeErrorException;
 
 public class DBManager {
-	private static final String URL = "jdbc:mysql://localhost:3306/moviedb?serverTimezone=UTC&allowLoadLocalInfil=true";
+	private static final String URL = "jdbc:mysql://localhost:3306/moviedb?serverTimezone=Asia/Seoul";
 	private static final String USER = "user";
 	private static final String PASSWORD = "1234";
 	

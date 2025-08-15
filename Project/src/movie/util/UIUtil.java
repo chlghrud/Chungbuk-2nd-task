@@ -2,6 +2,7 @@ package movie.util;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
 
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -16,7 +17,7 @@ public class UIUtil {
 	}
 
 	public static ImageIcon getImageIcon(String path, int width, int height) {
-        return new ImageIcon(new ImageIcon(path.replaceAll("/Project", ".")).getImage().getScaledInstance(width, height, java.awt.Image.SCALE_SMOOTH));
+        return new ImageIcon(new ImageIcon(path.replaceAll("/Project", ".")).getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH));
     }
 	
 	public static boolean mes(boolean b, String message) {
@@ -27,7 +28,7 @@ public class UIUtil {
 
 	public static boolean errMes(boolean b, String message) {
 		if(b)
-			JOptionPane.showMessageDialog(null, message, "경고", JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null, message, "경고", JOptionPane.ERROR_MESSAGE);
 		return b;
 	}
 	
@@ -36,6 +37,6 @@ public class UIUtil {
 	}
 
 	public static void errMes(String message) {
-		JOptionPane.showMessageDialog(null, message, "경고", JOptionPane.WARNING_MESSAGE);
+		JOptionPane.showMessageDialog(null, message, "경고", JOptionPane.ERROR_MESSAGE);
 	}
 }
